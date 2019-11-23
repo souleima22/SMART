@@ -325,7 +325,7 @@
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+          <a href="{{route('Recruteur.index') }}">
             <i class="fa fa-th"></i> <span>Recruteur</span>
           </a>
         </li>
