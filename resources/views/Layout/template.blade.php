@@ -331,13 +331,13 @@
         </li>
        
         <li>
-          <a href="{{ route('candidat.index') }}">
+          <a href="#">
             <i class="fa fa-folder"></i> <span>Candidat</span>
           </a>
 
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="{{ route('Administrateur.index') }}">
             <i class="fa fa-share"></i> <span>Administrateur</span>
           </a>
         </li>

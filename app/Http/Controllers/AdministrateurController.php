@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidat;
+use App\Models\Administrateur;
 use Illuminate\Http\Request;
 
-class CandidatController extends Controller
+class AdministrateurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CandidatController extends Controller
      */
     public function index()
     {
-        $candidats = Candidat::orderBy('prenom')->paginate(20);
-        return view('Candidat.Index', compact('candidats'));
+        $administrateurs = Administrateur::orderBy('login')->paginate(20);
+        return view('admin.index', compact('administrateurs'));
     }
 
     /**
@@ -42,10 +42,10 @@ class CandidatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Candidat  $candidat
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function show(Candidat $candidat)
+    public function show(Administrateur $administrateur)
     {
         //
     }
@@ -53,10 +53,10 @@ class CandidatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Candidat  $candidat
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Candidat $candidat)
+    public function edit(Administrateur $administrateur)
     {
         //
     }
@@ -65,10 +65,10 @@ class CandidatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Candidat  $candidat
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Candidat $candidat)
+    public function update(Request $request, Administrateur $administrateur)
     {
         //
     }
@@ -76,10 +76,10 @@ class CandidatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Candidat  $candidat
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Candidat $candidat)
+    public function destroy(Administrateur $administrateur)
     {
         //
     }
