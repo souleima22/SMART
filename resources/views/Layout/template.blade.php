@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Offre d'emploi | Welcome</title>
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -330,8 +330,8 @@
           </a>
         </li>
        
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="{{ route('candidat.index') }}">
             <i class="fa fa-folder"></i> <span>Candidat</span>
           </a>
 
