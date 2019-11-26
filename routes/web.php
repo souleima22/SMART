@@ -13,4 +13,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 Route::resource('Administrateur','AdministrateurController');
+=======
+Route::resource('candidat','CandidatController');
+>>>>>>> master

@@ -331,7 +331,11 @@
         </li>
        
         <li>
+<<<<<<< HEAD
           <a href="#">
+=======
+          <a href="{{ route('candidat.index') }}">
+>>>>>>> master
             <i class="fa fa-folder"></i> <span>Candidat</span>
           </a>
 

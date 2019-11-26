@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 use App\Administrateur;
+=======
+
+>>>>>>> master
 use Illuminate\Database\Seeder;
 
 class AdministrateurSeeder extends Seeder
@@ -11,6 +15,10 @@ class AdministrateurSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         factory(Administrateur::class, 50)->create();
+=======
+        //
+>>>>>>> master
     }
 }
