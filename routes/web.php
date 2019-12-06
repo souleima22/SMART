@@ -13,8 +13,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
+
+Route::resource('Recruteur','RecruteurController');
+
 Route::resource('Administrateur','AdministrateurController');
-=======
+
 Route::resource('candidat','CandidatController');
->>>>>>> master
+
