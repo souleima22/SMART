@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Recruteur;
 
-class RecruteurSeeder extends Seeder
+class OffreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,6 @@ class RecruteurSeeder extends Seeder
      */
     public function run()
     {
-        factory(Recruteur::class, 50)->create();
+        //
     }
 }
