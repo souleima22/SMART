@@ -331,7 +331,7 @@
         </li>
        
         <li class="treeview">
-          <a href="#">
+          <a href="{{ route('candidat.index') }}">
             <i class="fa fa-folder"></i> <span>Candidat</span>
           </a>
 

@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Models\Candidat;
+use App\Models\CV;
+use App\Models\Administrateur;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+       
+         $this->call(CandidatSeeder::class);
+         $this->call(AdministrateurSeeder::class);
+         $this->call(CVSeeder::class);
     }
 }
