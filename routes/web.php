@@ -14,4 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('candidat','CandidatController');
+Route::get('/search','CandidatController@search');
 Route::resource('offre','OffreController');
+

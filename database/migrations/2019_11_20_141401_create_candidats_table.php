@@ -21,11 +21,12 @@ class CreateCandidatsTable extends Migration
             $table->string('login');
             $table->string('mdp');
             $table->string('adresse');
+            $table->date('datedenaissance');
             $table->string('etatCivil');
             $table->string('ville');
             $table->UnsignedBigInteger('mobile');
             $table->string('email');
-            $table->integer('niveauExperience');
+            $table->string('niveauExperience');
             $table->timestamps();
         });
     }
