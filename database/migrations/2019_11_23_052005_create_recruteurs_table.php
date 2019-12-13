@@ -17,12 +17,15 @@ class CreateRecruteursTable extends Migration
             $table->Increments('id');
             $table->timestamps();
             $table->string('login');
+            $table->string('nom');
+            $table->string('prenom');
             $table->string('mdp');
             $table->string('email');
             $table->string('siteweb');
             $table->string('secteuractivite');
             $table->string('adresse');
-            $table->UnsignedBigInteger('telephone');
+            $table->UnsignedBigInteger('mobile');
+            //$table->foreign('id_admin')->references('id')->on('administrateurs');
 
         });
     }

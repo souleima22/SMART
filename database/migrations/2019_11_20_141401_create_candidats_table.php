@@ -21,12 +21,15 @@ class CreateCandidatsTable extends Migration
             $table->string('login');
             $table->string('mdp');
             $table->string('adresse');
+            $table->unsignedBigInteger('id_admin');
+            $table->date('datedenaissance');
             $table->string('etatCivil');
             $table->string('ville');
             $table->UnsignedBigInteger('mobile');
             $table->string('email');
-            $table->integer('niveauExperience');
+            $table->string('niveauExperience');
             $table->timestamps();
+            $table->foreign('id_admin')->references('id')->on('administrateurs');
         });
     }
 

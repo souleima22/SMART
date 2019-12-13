@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Offre;
+use App\Models\Offre;
 class OffreSeeder extends Seeder
 {
     /**
@@ -15,4 +15,3 @@ class OffreSeeder extends Seeder
      
     }
 }
-// fghjk

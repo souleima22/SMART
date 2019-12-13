@@ -5,6 +5,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Candidat;
 use App\Models\CV;
 use App\Models\Administrateur;
+use App\Models\Offre;
+use App\Models\Recruteur;
 class DatabaseSeeder extends Seeder
 {
     /**
