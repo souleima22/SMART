@@ -337,8 +337,8 @@
 
         </li>
         <li>
-          <a href="{{ route('offre.index') }}">
-            <i class="fa fa-share"></i> <span>Offre</span>
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Administrateur</span>
           </a>
         </li>
         <li class="treeview">

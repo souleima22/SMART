@@ -3,8 +3,8 @@
     <div class="input-group-prepend">
         <span class="input-group-text">Offre</span>
     </div>  
-    <input type="text" name="reference" id="reference" class="form-control @error('reference') is-invalid @enderror" value="{{ old('reference') ?? $offre->reference }}" placeholder="reference" aria-describedby="helpIdReference">
-    <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('desription') ?? $offre->description }}" placeholder="description" aria-describedby="helpIdDescription">
+    <input type="text" name="reference" id="reference" class="form-control @error('reference') is-invalid @enderror" value="{{ old('reference') }}" placeholder="reference" aria-describedby="helpIdReference">
+    <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('desription') }}" placeholder="description" aria-describedby="helpIdDescription">
 </div>            
 
 <div class="form-group">
@@ -61,6 +61,20 @@
         <p class="text-danger">{{ $message }}</p>
     @enderror
 </div>
+
+<div class="form-group">
+    <label for="id_recr">L'identifiant de recruteur</label>
+    <div>
+        <select name="id_recr" id="id_recr" class="form-control">
+         @foreach($recru as $item)
+        <option value="{{ $item->id }}">{{ $item->login }}</option>
+        @endforeach
+        </select>
+    </div>      
+</div>
+
+
+
 
     
 <div class="form-group">

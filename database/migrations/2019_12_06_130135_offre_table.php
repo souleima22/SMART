@@ -20,11 +20,13 @@ class Offretable extends Migration
             $table->string('titre');
             $table->string('lieu');
             $table->string('typeContrat');
+            $table->unsignedBigInteger('id_recr');
             $table->double('salaire');
             $table->date('duree');
             $table->string('niveauPoste');
             $table->string('niveauEtude');
             $table->timestamps();
+            $table->foreign('id_recr')->references('id')->on('recruteurs')->onDelete('cascade');
         });
     }
 

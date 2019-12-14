@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Offre;
+use App\Models\Recruteur;
 use Illuminate\Http\Request;
 
 class OffreController extends Controller
@@ -25,8 +26,9 @@ class OffreController extends Controller
      */
     public function create()
     {
+        $rec=Recruteur::all();
         $offres = new Offre();
-        return view('offre.create', compact('offres'));
+        return view('offre.create', ['offre'=>$offres,'recru'=>$rec]);
     }
 
     /**
@@ -62,7 +64,9 @@ class OffreController extends Controller
      */
     public function edit(Offre $offre)
     {
-        return view('offre.edit', compact('offre'));
+        $rec=Recruteur::all();
+        $offre =Offre::find($offre);
+        return view('offre.edit', ['offre'=>$offre,'recru'=>$rec]);
     }
 
     /**
@@ -76,7 +80,7 @@ class OffreController extends Controller
     {
         $validatedData = $this->validate($request, $this->validationRules());
         $offre->update($validatedData);
-        $this->reference($offre);
+       
         return redirect()->route('offre.show', [$offre])->with('successUpdateOffre', 'Offre mis à jour avec succés');
     }
 
@@ -96,7 +100,7 @@ class OffreController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $offres = Offre::orderBy('reference')->where('reference','like','%' .$search. '%')->paginate(5);
+        $offres = Offre::orderBy('reference')->where('reference','like','%' .$search. '%');
         return view('offre.index', compact('offres'));
     }
 
@@ -112,6 +116,7 @@ class OffreController extends Controller
             'duree' => 'required|date',
             'niveauPoste' => 'required|max:50|min:2',
             'niveauEtude' => 'required|max:50|min:2',
+            'id_recr'=>'required'
         ];
     }
 }

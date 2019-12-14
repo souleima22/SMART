@@ -22,7 +22,7 @@ class CreateCVSTable extends Migration
             $table->binary('experience');
             $table->string('langue');
             $table->string('niveau');
-            $table->integer('formationUni');
+            $table->string('formationUni');
             $table->binary('fichier');
             $table->timestamps();
         });

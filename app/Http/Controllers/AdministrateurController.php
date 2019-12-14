@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Gttp\Controllers;
 
+use App\Models\Administrateur;
 use Illuminate\Http\Request;
 
 class AdministrateurController extends Controller
@@ -24,7 +25,8 @@ class AdministrateurController extends Controller
      */
     public function create()
     {
-        //
+        $administrateur = new Administrateur();
+        return view('admin.create',compact('administrateur'));
     }
 
     /**
@@ -35,51 +37,71 @@ class AdministrateurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $this->validate($request,$this->validationRules());
+        $administrateur = Administrateur::create($validatedData);  
+        return redirect()->route('admin.show', [$administrateur])->with('successNewAdministrateur ','administrateur  ajouté avec succés');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Administrateur $administrateur)
     {
-        //
+        return view('admin.show')->with('administrateur', $administrateur);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Administrateur $administrateur)
     {
-        //
+        return view('admin.edit',compact('administrateur'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Administrateur $administrateur)
     {
-        //
+        $validatedData = $this->validate($request,$this->validationRules());
+        $administrateur->update($validatedData);
+        return redirect()->route('admin.show', [$administrateur])->with('successUpdateAdministrateur','Administrateur mise à jour avec succés');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Administrateur  $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Administrateur $administrateur)
     {
-        //
+        $administrateur ->delete();
+        return redirect()->route('admin.index', [$administrateur])->with('successDeleteAdministrateur','Administrateur supprime avec succés');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $administrateurs = Administrateur::orderBy('login')->where('login','like','%' .$search. '%')->paginate(5);
+        return view('admin.index', compact('administrateurs'));
+    }
+    private function validationRules()
+    {
+        return [
+            'login' => 'required|max:50|min:5',
+            'password' => 'required|max:50|min:5',
+            'email' => 'required|max:50|min:5'
+        ];
     }
 }

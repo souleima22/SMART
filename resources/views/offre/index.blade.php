@@ -19,6 +19,7 @@
     </div>
     <br>
   @endif 
+  <div>
   <a href="{{route('offre.create')}}">
       <button class="btn btn-primary">Ajouter un nouveau offre</button>
       </a>       
@@ -26,13 +27,14 @@
           <form action="/search" method="GET">
             <div class="input-group">
                 <span class="input-group-prepend" align="right">
-                    <button type="submit" class="btn btn-primary">Rechercher </button>
+                    <button type="submit" class="btn btn-primary">Rechercher par refernce</button>
                 </span>
               <input type="search" name="search" class="form-control">
               
-            </div>  
-          </form> 
-          </div></div>
+            </div>   
+          </form>
+        </div>
+  </div>
 
   <table>   
       <tr> 
@@ -45,6 +47,7 @@
         <th>Duree</th>
         <th>Niveau Poste</th>
         <th>Niveau Etude</th>
+        <th>Recruteur<th>
       </tr>
           
       @foreach ($offres as $offre)
@@ -60,12 +63,19 @@
          <td>{{ $offre->duree }}</td>
          <td>{{ $offre->niveauPoste }}</td>
          <td>{{ $offre->niveauEtude }}</td>
+         <td>{{ $offre->rec->login }}</td>
          <td></td>
-  
+         <td>  <div class="col-md-6">
+            <a href="{{ route('offre.show', ['offre'=>$offre->id]) }}">
+            <span class="input-group-prepend">
+            <button class="btn btn-primary">Consulter</button>
+            </span>
+            </a> 
+      </div></td>
       </tr>
       @endforeach
       <div>
-            {{ $offres->links() }}
+            {{ $offres -> links() }}
         </div>
           </table>
             

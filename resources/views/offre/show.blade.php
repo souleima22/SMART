@@ -27,14 +27,18 @@
                 <li class="list-group-item">{{ $offre->duree }}</li>
                 <li class="list-group-item">{{ $offre->niveauPoste }}</li>
                 <li class="list-group-item">{{ $offre->niveauEtude }}</li>
-                
+                <li class="list-group-item">{{ $offre->rec->login }}</li>
             </ul>
         </div>
         <div class="panel-footer py-2">
                 <div class="row">
                 <a href="{{ route('offre.edit',['offre' => $offre->id])}}" class="btn btn-info">
             Edit </a>
-            
+            <form action="{{ route('offre.destroy', ['offre'=> $offre->id]) }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Supprimer</button>
+                    </form>
                 </div>
             </div>
 

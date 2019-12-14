@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('offre','OffreController');
+Route::get('/search','OffreController@search');
 Route::resource('Recruteur','RecruteurController');
 Route::resource('candidat','CandidatController');
 Route::resource('admin','AdministrateurController');
