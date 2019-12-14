@@ -79,12 +79,21 @@
     @enderror        
 </div>
 <div class="form-group">
+<<<<<<< HEAD
     <label for="idadmin">L'id de l'admin</label>
     <div>
         <select name="idadmin" id="idadmin" class="form-control">
              {{-- @foreach($candidat as $candidat)  --}}
         <option value="{{ $candidat->id }}">{{ $candidat->id_admin }}</option>
         {{-- @endforeach  --}}
+=======
+    <label for="id_admin">Le login  de l'administrateur</label>
+    <div>
+        <select name="id_admin" id="id_admin" class="form-control">
+         @foreach($admins as $item)
+        <option value="{{ $item->id }}">{{ $item->login }}</option>
+        @endforeach
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
         </select>
     </div>      
 </div>

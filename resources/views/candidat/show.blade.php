@@ -32,6 +32,10 @@
                 <li class="list-group-item">{{ $candidat->mobile }}</li>
                 <li class="list-group-item">{{ $candidat->email }}</li>
                 <li class="list-group-item">{{ $candidat->niveauExperience }}</li>
+<<<<<<< HEAD
+=======
+                <li class="list-group-item">{{ $candidat->admin->login }}</li>
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
             
             </ul>
         </div>

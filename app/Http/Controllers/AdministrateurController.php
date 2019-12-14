@@ -1,6 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\Http\Controllers;
+=======
+<<<<<<< HEAD
+namespace App\Http\Controllers;
+=======
+namespace App\Gttp\Controllers;
+>>>>>>> offres
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
 
 use App\Models\Administrateur;
 use Illuminate\Http\Request;
@@ -25,7 +33,15 @@ class AdministrateurController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $administrateur = new Candidat();
+=======
+<<<<<<< HEAD
+        $administrateur = new Candidat();
+=======
+        $administrateur = new Administrateur();
+>>>>>>> offres
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
         return view('admin.create',compact('administrateur'));
     }
 
@@ -100,7 +116,16 @@ class AdministrateurController extends Controller
     {
         return [
             'login' => 'required|max:50|min:5',
+<<<<<<< HEAD
             'password' => 'required|max:50|min:5'
+=======
+<<<<<<< HEAD
+            'password' => 'required|max:50|min:5'
+=======
+            'password' => 'required|max:50|min:5',
+            'email' => 'required|max:50|min:5'
+>>>>>>> offres
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
         ];
     }
 }

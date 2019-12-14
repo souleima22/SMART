@@ -29,7 +29,11 @@ class CreateCandidatsTable extends Migration
             $table->string('email');
             $table->string('niveauExperience');
             $table->timestamps();
+<<<<<<< HEAD
             $table->foreign('id_admin')->references('id')->on('administrateurs');
+=======
+            $table->foreign('id_admin')->references('id')->on('administrateurs')->onDelete('cascade');
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
         });
     }
 

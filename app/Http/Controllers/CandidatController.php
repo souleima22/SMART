@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
+use App\Models\Administrateur;
 use Illuminate\Http\Request;
 
 class CandidatController extends Controller
@@ -16,6 +17,14 @@ class CandidatController extends Controller
     {
         $candidats = Candidat::orderBy('prenom')->paginate(10);
         return view('Candidat.index', compact('candidats'));
+<<<<<<< HEAD
+=======
+        //$candidats = Candidat::orderBy('prenom')->paginate(10);
+        //$admin =Administrateur::find('id_admin');
+        //$candidats=Candidat::with('admin')->get();
+        //$candidats=Candidat::all();  
+        //return view('Candidat.index', ['candidats'=>$candidats]);
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
     }
 
     /**
@@ -25,8 +34,14 @@ class CandidatController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $candidat = new Candidat();
         return view('candidat.create',compact('candidat'));
+=======
+        $admin=Administrateur::all();
+        $candidat = new Candidat();
+        return view('candidat.create',['candidat'=>$candidat,'admins'=>$admin]);
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
     }
 
     /**
@@ -37,7 +52,11 @@ class CandidatController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $validatedData = $this->validate($request,$this->validationRules());
+=======
+       $validatedData = $this->validate($request,$this->validationRules());
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
         $candidat = Candidat::create($validatedData);  
         return redirect()->route('candidat.show', [$candidat])->with('successNewCandidat','Candidat ajouté avec succés');
     }
@@ -59,9 +78,15 @@ class CandidatController extends Controller
      * @param  \App\Models\Candidat  $candidat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Candidat $candidat)
+    public function edit($candidat)
     {
+<<<<<<< HEAD
         return view('candidat.edit',compact('candidat'));
+=======
+        $admin=Administrateur::all();
+        $candidat =Candidat::find($candidat);
+        return view('candidat.edit',['candidat'=>$candidat,'admins'=>$admin]);
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
     }
 
     /**
@@ -110,6 +135,10 @@ class CandidatController extends Controller
             'mobile' => 'required|max:10|min:5',
             'email' => 'required|max:50|min:5',
             'niveauExperience' => 'required|max:20|min:3',
+<<<<<<< HEAD
+=======
+            'id_admin'=>'required'
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
         ];
     }
 }

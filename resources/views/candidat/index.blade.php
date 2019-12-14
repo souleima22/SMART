@@ -57,7 +57,12 @@
         <th>Ville</th>
         <th>Mobile</th>
         <th>Niveau Experience</th>
+<<<<<<< HEAD
         <th>L'administrateur </th>
+=======
+        <th>l'administrateur<th>
+
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
       </tr>
           
           
@@ -75,7 +80,11 @@
          <td>{{ $candidat->ville }}</td>
          <td>{{ $candidat->mobile }}</td>
          <td>{{ $candidat->niveauExperience }}</td>
+<<<<<<< HEAD
          <td>{{ $candidat->id_admin }}</td>
+=======
+         <td>{{ $candidat->admin->login }}</td>
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
           <td>  <div class="col-md-6">
             <a href="{{ route('candidat.show', ['candidat'=>$candidat->id]) }}">
             <span class="input-group-prepend">
@@ -86,7 +95,11 @@
       </tr>
       @endforeach
       <div>
+<<<<<<< HEAD
         {{ $candidats-> links() }}
+=======
+        {{ $candidats-> links() }} 
+>>>>>>> bb5165a40cb2eff3edc58924830a6b6c30dbf5ce
        </div>
           </table>     
              </div>
