@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Administrateur extends Model
 {
-    //
+    protected $guarded = [];
+    
+    public function candidat()
+    {
+        return $this->hasMany('App\Models\Candidat');
+    }
 }
