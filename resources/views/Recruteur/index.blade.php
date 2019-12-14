@@ -35,7 +35,7 @@
           <form action="/search" method="GET">
             <div class="input-group">
                 <span class="input-group-prepend" align="right">
-                    <button type="submit" class="btn btn-primary">Rechercher par Email</button>
+                    <button type="submit" class="btn btn-primary">Rechercher par Secteur d'activité</button>
                 </span>
               <input type="search" name="search" class="form-control">
               
@@ -55,6 +55,7 @@
         <th>Secteur D'activite</th>
         <th>Adresse</th>
         <th>Mobile</th>
+        <th>l'administrateur<th>
       </tr>
           
           
@@ -70,6 +71,7 @@
          <td>{{ $recruteur->secteuractivite }}</td> 
          <td>{{ $recruteur->adresse }}</td>
          <td>{{ $recruteur->mobile }}</td>
+         <td>{{ $recruteur->admin->login }}</td>
         <!-- <td>{{ $recruteur->id_admin }}</td>-->
           <td>  <div class="col-md-6">
             <a href="{{ route('recruteur.show', ['recruteur'=>$recruteur->id]) }}">

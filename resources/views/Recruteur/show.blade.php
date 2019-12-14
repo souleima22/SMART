@@ -31,6 +31,7 @@
                 <li class="list-group-item">{{ $recruteur->secteuractivite }}</li>
                 <li class="list-group-item">{{ $recruteur->adresse }}</li>
                 <li class="list-group-item">{{ $recruteur->mobile }}</li>
+                <li class="list-group-item">{{ $recruteur->admin->login }}</li>
             </ul>
         </div>
         <div class="panel-footer py-2">
