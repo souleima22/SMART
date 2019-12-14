@@ -15,3 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('offre','OffreController');
+Route::get('/search','PagesController@create');
+Route::resource('Recruteur','RecruteurController');
+Route::resource('candidat','CandidatController');
+Route::resource('administrateur','AdministrateurController');
+Route::get('/','PagesController@index');
+Route::resource('log','PagesController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

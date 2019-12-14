@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Offre d'emploi | Welcome</title>
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="{{ asset('bower_components/jvectormap/jquery-jvectormap.css')}}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css')}}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -313,7 +313,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview menu-open">
-          <a href="#">
+          <a href="{{ route('offre.index') }}">
             <i class="fa fa-dashboard"></i> <span>Offre</span>
           </a>
         </li>
@@ -325,42 +325,19 @@
           </a>
         </li>
         <li>
-<<<<<<< HEAD
           <a href="{{route('Recruteur.index') }}">
-=======
-          <a href="pages/widgets.html">
->>>>>>> offre
             <i class="fa fa-th"></i> <span>Recruteur</span>
           </a>
         </li>
        
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <li class="treeview">
-          <a href="{{ route('candidat.index') }}">
-=======
         <li>
-<<<<<<< HEAD
-          <a href="#">
-=======
           <a href="{{ route('candidat.index') }}">
->>>>>>> master
->>>>>>> 0adbaaca626a2e5cdd46c41d5c71bbf945925d08
-=======
-        <li class="treeview">
-          <a href="#">
->>>>>>> offre
             <i class="fa fa-folder"></i> <span>Candidat</span>
           </a>
 
         </li>
-<<<<<<< HEAD
         <li>
-          <a href="{{ route('Administrateur.index') }}">
-=======
-        <li class="treeview">
-          <a href="#">
->>>>>>> offre
+          <a href="{{ route('administrateur.index') }}">
             <i class="fa fa-share"></i> <span>Administrateur</span>
           </a>
         </li>

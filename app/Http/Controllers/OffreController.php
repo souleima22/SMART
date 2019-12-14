@@ -25,7 +25,8 @@ class OffreController extends Controller
      */
     public function create()
     {
-        //
+        $offres = new Offre();
+        return view('offre.create', compact('offres'));
     }
 
     /**
@@ -36,7 +37,10 @@ class OffreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $this->validate($request, $this->validationRules());
+        $offres = Offre::create($validatedData);
+        return redirect()->route('offre.show', [$offres])
+                        ->with('successNewOffre', 'Offre ajouté avec succés');
     }
 
     /**
@@ -47,7 +51,7 @@ class OffreController extends Controller
      */
     public function show(Offre $offre)
     {
-        //
+        return view('offre.show')->with('offre', $offre);
     }
 
     /**
@@ -58,7 +62,7 @@ class OffreController extends Controller
      */
     public function edit(Offre $offre)
     {
-        //
+        return view('offre.edit', compact('offre'));
     }
 
     /**
@@ -70,7 +74,10 @@ class OffreController extends Controller
      */
     public function update(Request $request, Offre $offre)
     {
-        //
+        $validatedData = $this->validate($request, $this->validationRules());
+        $offre->update($validatedData);
+        $this->reference($offre);
+        return redirect()->route('offre.show', [$offre])->with('successUpdateOffre', 'Offre mis à jour avec succés');
     }
 
     /**
@@ -81,6 +88,32 @@ class OffreController extends Controller
      */
     public function destroy(Offre $offre)
     {
-        //
+        $offre->delete();
+        return redirect()->route('offre.index')->with('successDelete','offre supprimé');
+    }
+
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $offres = Offre::orderBy('reference')->where('reference','like','%' .$search. '%');
+        return view('offre.index', compact('offres'));
+    }
+
+    private function validationRules()
+    {
+        return [
+            'reference' => 'required|max:50|min:2',
+            'description' => 'required|max:50|min:2',
+            'titre' => 'required|max:50|min:2',
+            'lieu' => 'required|max:70|min:5',
+            'typeContrat' => 'required|max:50|min:2',
+            'salaire' => 'required|max:50|min:2',
+            'duree' => 'required|date',
+            'niveauPoste' => 'required|max:50|min:2',
+            'niveauEtude' => 'required|max:50|min:2',
+        ];
     }
 }
+
+ 

@@ -19,7 +19,6 @@ class CreateRecruteursTable extends Migration
             $table->string('mdp');
             $table->string('email');
             $table->string('siteweb');
-            $table->binary('logo');
             $table->string('secteurActivite');
             $table->string('adresse');
             $table->UnsignedBigInteger('telephone');
