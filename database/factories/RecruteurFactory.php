@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Models\Recruteur;
+use App\Models\Administrateur;
 use Faker\Generator as Faker;
 
 $factory->define(Recruteur::class, function (Faker $faker) {
@@ -16,7 +17,7 @@ $factory->define(Recruteur::class, function (Faker $faker) {
         'secteuractivite'=> $faker->name,
         'adresse'=> $faker->streetAddress,
         'mobile'=> $faker->e164PhoneNumber,
-       // 'id_admin' => $faker->randomElement(Administrateur::pluck('id')->toArray()),
+        'id_admin' => $faker->randomElement(Administrateur::pluck('id')->toArray()),
         'created_at' => now(),
         'updated_at' => now(),
     ];

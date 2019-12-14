@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recruteur;
 use Illuminate\Http\Request;
+use App\Models\Administrateur;
 
 class RecruteurController extends Controller
 {
@@ -25,8 +26,10 @@ class RecruteurController extends Controller
      */
     public function create()
     {
+        $admin=Administrateur::all();
         $recruteur = new Recruteur();
-        return view('recruteur.create',compact('recruteur'));
+        //return view('recruteur.create',compact('recruteur'));
+        return view('recruteur.create',['recruteur'=>$recruteur,'admins'=>$admin]);
     }
 
     /**
@@ -40,6 +43,7 @@ class RecruteurController extends Controller
         $validatedData = $this->validate($request,$this->validationRules());
         $recruteur = Recruteur::create($validatedData);  
         return redirect()->route('recruteur.show', [$recruteur])->with('successNewRecruteur','Recruteur ajouté avec succés');
+        //$this->uploadImage($client);
     }
 
     /**
@@ -61,7 +65,10 @@ class RecruteurController extends Controller
      */
     public function edit(Recruteur $recruteur)
     {
-        return view('recruteur.edit',compact('recruteur'));
+        //return view('recruteur.edit',compact('recruteur'));
+        $admin=Administrateur::all();
+        $recruteur =Recruteur::find($recruteur);
+        return view('recruteur.edit',['recruteur'=>$recruteur,'admins'=>$admin]);
     }
 
     /**
@@ -92,7 +99,7 @@ class RecruteurController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $recruteurs = Recruteur::orderBy('email')->where('email','like','%' .$search. '%')->paginate(5);
+        $recruteurs = Recruteur::orderBy('secteuractivite')->where('secteuractivite','like','%' .$search. '%')->paginate(5);
         return view('recruteur.index', compact('recruteurs'));
     }
     private function validationRules()
@@ -107,6 +114,7 @@ class RecruteurController extends Controller
             'secteuractivite' => 'required|max:50|min:5',
             'adresse' => 'required|max:50|min:2',
             'mobile' => 'required|max:10|min:5',
+            'id_admin'=>'required'
             
         ];
     }

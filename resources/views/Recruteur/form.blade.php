@@ -40,7 +40,7 @@
 
 <div class="form-group">
     <label for="mobile">Mobile</label>
-    <input type="tel" name="mobile" id="mobile" class="form-control @error('mobile') is-invalid @enderror" value="{{ old('mobile') ?? $recruteur->mobile }}" placeholder="(+216)XXXXXXXX" aria-describedby="helpIdMobile">
+    <input type="tel" name="mobile" id="mobile" class="form-control @error('mobile') is-invalid @enderror" value="{{ old('mobile') ?? $recruteur->mobile }}" placeholder="XXXXXXXX" aria-describedby="helpIdMobile">
     @error('mobile')
         <p class="text-danger">{{ $message }}</p>
     @enderror        
@@ -69,6 +69,16 @@
         </select>
     </div>      
 </div>-->
+<div class="form-group">
+    <label for="id_admin">L'id de l'admin</label>
+    <div>
+        <select name="id_admin" id="id_admin" class="form-control">
+         @foreach($admins as $item)
+        <option value="{{ $item->id }}">{{ $item->login }}</option>
+        @endforeach
+        </select>
+    </div>      
+</div>
 
 <div class="form-group">
     <input type="submit" value="Enregistrer" class="btn btn-success">

@@ -14,7 +14,7 @@ class CreateRecruteursTable extends Migration
     public function up()
     {
         Schema::create('recruteurs', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('login');
             $table->string('nom');
@@ -25,6 +25,8 @@ class CreateRecruteursTable extends Migration
             $table->string('secteuractivite');
             $table->string('adresse');
             $table->UnsignedBigInteger('mobile');
+            $table->unsignedBigInteger('id_admin');
+            $table->foreign('id_admin')->references('id')->on('administrateurs')->onDelete('cascade');
             //$table->foreign('id_admin')->references('id')->on('administrateurs');
 
         });
